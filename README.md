@@ -159,13 +159,81 @@ graph TD
 
 ---
 
-## 🌐 API Endpoints (Brief Overview)
+## 📖 Swagger API Documentation
 
-- `GET /api/movies`: List all movies.
-- `GET /api/cities`: List all cities.
-- `GET /api/theaters/city/{cityId}`: Get theaters in a city.
-- `POST /api/bookings`: Create a new booking.
-- `POST /api/users/login`: User authentication.
+This project uses **SpringDoc OpenAPI** (Swagger) to provide a comprehensive, interactive API reference. You can test all backend endpoints directly from your browser.
+
+### Accessing Swagger UI:
+1. Start the backend application.
+2. Navigate to: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+3. Explore the interactive documentation and try out API requests.
+
+### OpenAPI JSON:
+- JSON format: [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
+
+---
+
+## 🌐 API Reference
+
+### 👤 User Endpoints
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/users/register` | Register a new user |
+| `POST` | `/api/users/login` | User authentication |
+| `GET` | `/api/users` | List all registered users |
+| `GET` | `/api/users/{id}` | Get user details by ID |
+
+### 🏙️ City Endpoints
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/cities` | List all cities |
+| `GET` | `/api/cities/{id}` | Get city details by ID |
+
+### 🎬 Movie Endpoints
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/movies` | List all movies |
+| `GET` | `/api/movies/{id}` | Get movie details by ID |
+| `GET` | `/api/movies/search?title=...` | Search movies by title |
+| `GET` | `/api/movies/genre/{genre}` | Filter movies by genre |
+| `GET` | `/api/movies/genre/{language}` | Filter movies by language |
+
+### 🎭 Theater Endpoints
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/theaters` | List all theaters |
+| `GET` | `/api/theaters/{id}` | Get theater details by ID |
+| `GET` | `/api/theaters/city/{cityId}` | Get theaters in a specific city |
+
+### 🖥️ Screen Endpoints
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/screens` | List all screens |
+| `GET` | `/api/screens/{id}` | Get screen details by ID |
+| `GET` | `/api/screens/theater/{theaterId}` | Get screens in a specific theater |
+
+### 📅 Show Endpoints
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/shows` | List all shows |
+| `GET` | `/api/shows/{id}` | Get show details by ID |
+| `GET` | `/api/shows/movie/{movieId}` | Get shows for a specific movie |
+| `GET` | `/api/shows/movie/{movieId}/date?date={YYYY-MM-DD}` | Get shows for a movie on a specific date |
+
+### 💺 Seat Endpoints
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/seats/screen/{screenId}` | Get all seats for a specific screen |
+| `GET` | `/api/seats/{id}` | Get seat details by ID |
+
+### 🎟️ Booking Endpoints
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/bookings` | Create a new movie booking |
+| `GET` | `/api/bookings/{id}` | Get booking details |
+| `GET` | `/api/bookings/user/{userId}` | Get all bookings for a user |
+| `PUT` | `/api/bookings/{id}/cancel` | Cancel an existing booking |
+| `GET` | `/api/bookings/show/{showId}/available-seats` | Get available seats for a show |
 
 ---
 
