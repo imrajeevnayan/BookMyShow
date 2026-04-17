@@ -157,6 +157,18 @@ graph TD
 2. Open `UI/UI/index.html` in any modern web browser or use a Live Server.
 3. Ensure the backend is running on `http://localhost:8080` for API calls to work.
 
+### 🐳 Docker (Optional)
+Run the application using Docker:
+1. Build the image:
+   ```bash
+   docker build -t bms-backend .
+   ```
+2. Run the container:
+   ```bash
+   docker run -p 8080:8080 bms-backend
+   ```
+   *Note: Ensure your PostgreSQL instance is accessible from the container.*
+
 ---
 
 ## 📖 Swagger API Documentation
