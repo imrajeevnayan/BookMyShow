@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Lock, User, ArrowRight, Globe } from 'lucide-react';
+import { Mail, Lock, User, ArrowRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -120,7 +120,7 @@ const Signup: React.FC = () => {
 
           <div style={{ display: 'flex', gap: '1rem' }}>
             <button className="btn-glass" style={{ flex: 1, borderRadius: '16px', padding: '0.75rem' }}>
-              <Globe size={18} />
+              <User size={18} />
               GitHub
             </button>
             <button className="btn-glass" style={{ flex: 1, borderRadius: '16px', padding: '0.75rem' }}>
