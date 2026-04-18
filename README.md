@@ -1,3 +1,10 @@
+<!-- 
+  Metadata for SEO Optimization
+  Title: BookMyShow Clone - Advanced Movie Ticket Booking System
+  Description: A high-performance BookMyShow Clone built with Java, Spring Boot, and React. Featuring a premium dark-mode UI, seat selection, and REST API.
+  Keywords: BookMyShow Clone, Movie Booking System, Spring Boot React, Full Stack Java, Movie App
+-->
+
 # 🎬 BookMyShow Clone - Advanced Movie Ticket Booking System
 
 A high-performance **BookMyShow Clone** and **Movie Ticket Booking System**. This project is a comprehensive **Full-Stack Java Project** featuring a **Spring Boot** backend and a **React 19** frontend with **Premium UI/UX**.
