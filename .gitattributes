@@ -1,2 +1,8 @@
 /mvnw text eol=lf
 *.cmd text eol=crlf
+
+# Ignore legacy UI for language statistics
+UI/** linguist-vendored
+frontend/node_modules/** linguist-vendored
+frontend/dist/** linguist-vendored
+.planning/** linguist-vendored
