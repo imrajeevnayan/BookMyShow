@@ -1,8 +1,10 @@
 /mvnw text eol=lf
 *.cmd text eol=crlf
 
-# Ignore legacy UI for language statistics
+# Prioritize Java by hiding other major languages from statistics
 UI/** linguist-vendored
-frontend/node_modules/** linguist-vendored
-frontend/dist/** linguist-vendored
-.planning/** linguist-vendored
+frontend/** linguist-vendored
+src/main/resources/** linguist-vendored
+pom.xml linguist-detectable=false
+.gitattributes linguist-detectable=false
+README.md linguist-detectable=false
