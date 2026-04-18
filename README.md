@@ -1,6 +1,8 @@
-# 🎬 BookMyShow Clone
+# 🎬 BookMyShow Clone - Advanced Movie Ticket Booking System
 
-A premium, full-stack movie booking platform. Features a modern **React** frontend and a robust **Spring Boot** backend.
+A high-performance **BookMyShow Clone** and **Movie Ticket Booking System**. This project is a comprehensive **Full-Stack Java Project** featuring a **Spring Boot** backend and a **React 19** frontend with **Premium UI/UX**.
+
+Designed for scalability and modern aesthetics, this **Movie Booking Application** serves as a perfect example of architecture using **Java 17**, **Spring Data JPA**, and **Glassmorphism Design**.
 
 ---
 
