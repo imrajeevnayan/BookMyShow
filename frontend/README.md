@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+# 🎨 BookMyShow Frontend - Premium React Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This directory contains the high-end, React-powered frontend for the BookMyShow clone. Built with a focus on visual excellence and smooth user interactions.
 
-Currently, two official plugins are available:
+## 🚀 Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## React Compiler
+2. **Run dev server:**
+   ```bash
+   npm run dev
+   ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 💎 Design System
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The application uses a custom-built design system based on **Glassmorphism** and **Dark Mode** aesthetics.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Typography
+- **Headings:** `Outfit` - Bold, modern, and geometric.
+- **Body:** `Inter` - Highly readable and professional.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Color Palette
+- **Primary:** `#e11d48` (Rose 600) - Energetic and clear.
+- **Background:** `#020617` (Slate 950) - Deep, elegant dark mode.
+- **Glass:** `rgba(15, 23, 42, 0.7)` with `12px` blur - For high-end translucent overlays.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Utility Classes
+- `.glass-effect`: Applies the glassmorphism backdrop and border.
+- `.premium-gradient`: Linear gradient for buttons and highlights.
+- `.animate-fade`: Smooth entrance animation for page elements.
+- `.hover-zoom`: Consistent scaling effect for movie posters.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Tech Stack
+
+- **Framework:** React 19 (Latest stable)
+- **Language:** TypeScript
+- **Icons:** Lucide React
+- **Animation:** Framer Motion
+- **Styles:** Vanilla CSS with CSS Variables (Maintainable & High Performance)
+- **Networking:** Axios for API integration
+
+---
+
+## 🧩 Component Architecture
+
+- `src/components/`: Reusable interface elements.
+- `src/pages/`: Route-level components (Home, MovieDetail, SeatSelection).
+- `src/services/api.ts`: Centralized API configuration and endpoints.
+- `src/index.css`: Core design system and global token definitions.
+
+---
+
+Developed with ❤️ by the Project Team. 🚀

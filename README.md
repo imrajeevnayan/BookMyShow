@@ -1,68 +1,105 @@
-# BookMyShow - Movie Ticket Booking System
+# 🎬 BookMyShow - Advanced Movie Ticket Booking System
 
-A full-stack movie ticket booking application inspired by BookMyShow. This project features a Spring Boot backend with a PostgreSQL database and a responsive HTML/CSS/JS frontend.
+[![Spring Boot](https://img.shields.io/badge/Backend-Spring%20Boot%203.x-6DB33F?style=for-the-badge&logo=spring-boot)](https://spring.io/projects/spring-boot)
+[![React](https://img.shields.io/badge/Frontend-React%2019-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?style=for-the-badge&logo=postgresql)](https://www.postgresql.org/)
+
+A full-stack, enterprise-grade movie ticket booking application inspired by BookMyShow. This project features a robust Spring Boot backend and a high-performance, premium React frontend designed with modern aesthetics (Glassmorphism, Dark Mode, and Fluid Animations).
 
 ---
 
-## 🚀 Features
+## ✨ Premium UI & Features
 
-- **User Authentication**: Register and login as a user.
-- **City-based Browsing**: Find theaters and movies in your specific city.
-- **Movie Details**: View movie info and showtimes.
-- **Seat Selection**: Interactive seat selection for shows.
-- **Real-time Booking**: Seamlessly book tickets for movies.
-- **Admin Management**: Manage cities, theaters, screens, and shows (via API).
+*   **Modern Aesthetics:** Sleek dark mode interface with glassmorphism effects, backdrop blurs, and premium typography (Inter & Outfit).
+*   **Dynamic Discovery:** Hero section with live movie previews, advanced search, and trending stats.
+*   **Interactive Booking:** Seamless seat selection grid with real-time feedback and pricing logic.
+*   **Performance First:** Built with Vite for ultra-fast HMR and optimized asset loading.
+*   **Robust Backend:** Comprehensive REST API with PostgreSQL persistence and automated database seeding.
+*   **Developer Experience:** Fully documented with Swagger/OpenAPI and a clean project structure.
 
 ---
 
 ## 🛠️ Technology Stack
 
-**Backend:**
-- Java 17+
-- Spring Boot 3.x
-- Spring Data JPA
-- PostgreSQL
-- Lombok
-- Maven
+### Backend (Spring Boot Core)
+- **Framework:** Spring Boot 3.x
+- **Data:** Spring Data JPA + PostgreSQL
+- **Security:** CSRF Protection, Password Hashing
+- **Documentation:** SpringDoc OpenAPI (Swagger)
+- **Utilities:** Lombok, Maven, ModelMapper
 
-**Frontend:**
-- HTML5 & CSS3
-- JavaScript (Vanilla)
-- Google Fonts (Inter)
+### Frontend (Modern React)
+- **Library:** React 19 + TypeScript
+- **Tooling:** Vite 8.x
+- **Animation:** Framer Motion
+- **Icons:** Lucide React
+- **Styling:** Custom CSS Design System (Vanilla CSS with CSS Variables)
+- **Routing:** React Router 7
 
 ---
 
-## 📁 Workspace Folder Structure
+## 📁 Project structure
 
 ```text
 BOOKMYSHOW/
-├── src/main/java/com/cfs/BMS/
-│   ├── config/          # CORS and app configurations
-│   ├── controller/      # REST API Endpoints
-│   ├── dto/             # Data Transfer Objects (Requests/Responses)
-│   ├── entity/          # Database Models (JPA Entities)
-│   ├── enums/           # Enumerations (BookingStatus, SeatType)
-│   ├── exception/       # Global Exception Handling
-│   ├── repository/      # Spring Data Repositories
-│   ├── service/         # Business Logic Layer
-│   └── BmsApplication.java
+├── frontend/             # 🎨 Modern React/TypeScript Frontend (Vite)
+│   ├── src/
+│   │   ├── components/   # Reusable UI components (Navbar, Hero, MovieCard)
+│   │   ├── pages/        # Main route pages (Home, MovieDetail, Booking)
+│   │   ├── services/     # API integration layer (Axios)
+│   │   └── App.tsx       # Main component & routing logic
+├── src/main/java/        # ⚙️ Spring Boot Backend (Java)
+│   ├── com/cfs/BMS/
+│   │   ├── controller/   # REST API Endpoints
+│   │   ├── service/      # Business Logic
+│   │   ├── entity/       # Database Models
+│   │   └── repository/   # Data Access layer
 ├── src/main/resources/
-│   ├── application.properties # Configuration (DB, Port)
-│   ├── BMS.sql                # Database Schema
-│   └── data.sql               # Seed Data
-├── UI/UI/
-│   ├── css/             # Stylesheets
-│   ├── js/              # API and Utility scripts
-│   ├── pages/           # HTML templates (Admin, Login, Movies, etc.)
-│   └── index.html       # Landing Page
-└── pom.xml              # Maven Dependencies
+│   ├── application.properties # PostgreSQL & App config
+│   └── data.sql               # Seed data for movies/theaters
+└── pom.xml               # Backend dependencies
 ```
 
 ---
 
-## 📊 Entity Relationship (ER) Diagram
+## 🚀 Getting Started
 
-The following diagram illustrates the database schema and relationships between entities.
+### 1. Backend Setup (Spring Boot)
+1. Ensure **PostgreSQL** is running.
+2. Create a database named `BMS`.
+3. Update `src/main/resources/application.properties` with your credentials:
+   ```properties
+   spring.datasource.url=jdbc:postgresql://localhost:5432/BMS
+   spring.datasource.username=your_username
+   spring.datasource.password=your_password
+   ```
+4. Start the backend:
+   ```bash
+   mvn spring-boot:run
+   ```
+
+### 2. Frontend Setup (React)
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the dev server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+## 📊 Business Logic & Workflows
+
+### Entity Relationships
+The project follows a relational model mapping Cities → Theaters → Screens → Shows → Bookings.
 
 ```mermaid
 erDiagram
@@ -72,181 +109,22 @@ erDiagram
     MOVIE ||--o{ SHOW : has
     SHOW ||--o{ BOOKING : receives
     USER ||--o{ BOOKING : makes
-    BOOKING }|--|{ SEAT : includes
-
-    CITY {
-        Long id
-        String name
-    }
-    THEATER {
-        Long id
-        String name
-        String address
-    }
-    SCREEN {
-        Long id
-        String name
-    }
-    MOVIE {
-        Long id
-        String title
-        String genre
-        Integer duration
-    }
-    SHOW {
-        Long id
-        LocalDate showDate
-        LocalTime startTime
-        Double ticketPrice
-    }
-    BOOKING {
-        Long id
-        Double totalPrice
-        String status
-        LocalDateTime bookedAt
-    }
-    SEAT {
-        Long id
-        String seatNumber
-        String type
-    }
-    USER {
-        Long id
-        String username
-        String email
-        String password
-    }
 ```
 
----
-
-## 🔄 Booking Flowchart
-
-The logic flow of a user booking a ticket from landing to confirmation.
-
-```mermaid
-graph TD
-    A[Start: Landing Page] --> B{Select City}
-    B --> C[Browse Movies]
-    C --> D[Select Movie]
-    D --> E[View Shows & Theaters]
-    E --> F[Select Show Time]
-    F --> G[Select Seats]
-    G --> H{Confirm Booking?}
-    H -- Yes --> I[Process Payment]
-    I --> J[Generate Ticket]
-    J --> K[End: Booking Confirmed]
-    H -- No --> C
-```
+### Booking Algorithm
+A state-of-the-art booking flow ensuring atomicity and seat availability:
+1. **Selection:** User selects movie and theater city-wide.
+2. **Showtime:** Filtering based on movie availability and theater schedules.
+3. **Seat Assignment:** Interactive map displaying available vs occupied seats.
+4. **Finalization:** Ticket generation and booking confirmation.
 
 ---
 
-## ⚙️ Setup Instructions
+## 📖 API Documentation
 
-### Backend (Spring Boot)
-1. Ensure **PostgreSQL** is running.
-2. Create a database named `BMS`.
-3. Update `src/main/resources/application.properties` with your PostgreSQL username and password.
-4. Run the application:
-   ```bash
-   mvn spring-boot:run
-   ```
-
-### Frontend
-1. The frontend resides in the `UI/UI` folder.
-2. Open `UI/UI/index.html` in any modern web browser or use a Live Server.
-3. Ensure the backend is running on `http://localhost:8080` for API calls to work.
-
-### 🐳 Docker (Optional)
-Run the application using Docker:
-1. Build the image:
-   ```bash
-   docker build -t bms-backend .
-   ```
-2. Run the container:
-   ```bash
-   docker run -p 8080:8080 bms-backend
-   ```
-   *Note: Ensure your PostgreSQL instance is accessible from the container.*
+Explore the interactive API reference via Swagger UI while the backend is running:
+🔗 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
 ---
 
-## 📖 Swagger API Documentation
-
-This project uses **SpringDoc OpenAPI** (Swagger) to provide a comprehensive, interactive API reference. You can test all backend endpoints directly from your browser.
-
-### Accessing Swagger UI:
-1. Start the backend application.
-2. Navigate to: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
-3. Explore the interactive documentation and try out API requests.
-
-### OpenAPI JSON:
-- JSON format: [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
-
----
-
-## 🌐 API Reference
-
-### 👤 User Endpoints
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `POST` | `/api/users/register` | Register a new user |
-| `POST` | `/api/users/login` | User authentication |
-| `GET` | `/api/users` | List all registered users |
-| `GET` | `/api/users/{id}` | Get user details by ID |
-
-### 🏙️ City Endpoints
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/cities` | List all cities |
-| `GET` | `/api/cities/{id}` | Get city details by ID |
-
-### 🎬 Movie Endpoints
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/movies` | List all movies |
-| `GET` | `/api/movies/{id}` | Get movie details by ID |
-| `GET` | `/api/movies/search?title=...` | Search movies by title |
-| `GET` | `/api/movies/genre/{genre}` | Filter movies by genre |
-| `GET` | `/api/movies/genre/{language}` | Filter movies by language |
-
-### 🎭 Theater Endpoints
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/theaters` | List all theaters |
-| `GET` | `/api/theaters/{id}` | Get theater details by ID |
-| `GET` | `/api/theaters/city/{cityId}` | Get theaters in a specific city |
-
-### 🖥️ Screen Endpoints
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/screens` | List all screens |
-| `GET` | `/api/screens/{id}` | Get screen details by ID |
-| `GET` | `/api/screens/theater/{theaterId}` | Get screens in a specific theater |
-
-### 📅 Show Endpoints
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/shows` | List all shows |
-| `GET` | `/api/shows/{id}` | Get show details by ID |
-| `GET` | `/api/shows/movie/{movieId}` | Get shows for a specific movie |
-| `GET` | `/api/shows/movie/{movieId}/date?date={YYYY-MM-DD}` | Get shows for a movie on a specific date |
-
-### 💺 Seat Endpoints
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/seats/screen/{screenId}` | Get all seats for a specific screen |
-| `GET` | `/api/seats/{id}` | Get seat details by ID |
-
-### 🎟️ Booking Endpoints
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `POST` | `/api/bookings` | Create a new movie booking |
-| `GET` | `/api/bookings/{id}` | Get booking details |
-| `GET` | `/api/bookings/user/{userId}` | Get all bookings for a user |
-| `PUT` | `/api/bookings/{id}/cancel` | Cancel an existing booking |
-| `GET` | `/api/bookings/show/{showId}/available-seats` | Get available seats for a show |
-
----
-
-Developed with ❤️ by the Project Team.
+Developed with ❤️ by the Project Team. 🚀
